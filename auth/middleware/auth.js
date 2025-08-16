@@ -5,7 +5,7 @@ function verifyUser(req, res, next) {
 
   if (!token) {
     req.user=null;
-     return next()// stop execution
+     return next() //returns null meaning no user is loged in
   }
 
   try {
