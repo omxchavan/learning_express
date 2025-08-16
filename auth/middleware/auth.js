@@ -4,12 +4,13 @@ function verifyUser(req, res, next) {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.redirect("/login"); // stop execution
+    req.user=null;
+     return next()// stop execution
   }
 
   try {
-    const user = jwt.verify(token, "shhhhh"); // use process.env.JWT_SECRET in real apps
-    req.user = user; // attach payload
+    const user = jwt.verify(token, "shhhhh"); 
+    req.user=user;
     next(); // proceed only if token is valid
   } catch (error) {
     console.error("JWT verification failed:", error.message);

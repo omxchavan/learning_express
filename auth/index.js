@@ -30,7 +30,7 @@ mongoose
   });
 
 
-app.use("/", userRoute);
+app.use("/",userRoute);
 app.use("/", staticRouter);
 app.use("/",verifyUser, urlRoute);
 
