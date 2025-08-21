@@ -1,6 +1,8 @@
 const shortid = require("shortid");
 const URL = require("../model/url");
 
+
+
 async function handleUrl(req, res) {
   const body = req.body;
   const shortUrl = shortid.generate(4);
@@ -28,3 +30,5 @@ module.exports = {
   handleShortUrl,
   redirectUrl,
 };
+
+

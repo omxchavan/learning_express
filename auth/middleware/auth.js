@@ -5,12 +5,14 @@ function verifyUser(req, res, next) {
 
   if (!token) {
     req.user=null;
+    
      return next() //returns null meaning no user is loged in
   }
 
   try {
     const user = jwt.verify(token, "shhhhh"); 
     req.user=user;
+    console.log(user)
     next(); // proceed only if token is valid
   } catch (error) {
     console.error("JWT verification failed:", error.message);
